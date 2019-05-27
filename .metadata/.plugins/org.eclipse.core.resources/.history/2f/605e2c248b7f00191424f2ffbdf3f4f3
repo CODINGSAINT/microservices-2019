@@ -1,0 +1,5 @@
+eureka.client.service-url.defaultZone= http://localhost:8761/eureka/
+spring.cloud.config.uri=http://localhost:9000
+spring.application.name=reservation-client
+server.port=8500
+spring.sleuth.sampler.percentage=1.0

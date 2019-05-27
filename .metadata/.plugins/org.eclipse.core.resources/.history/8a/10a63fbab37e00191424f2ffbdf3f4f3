@@ -1,0 +1,4 @@
+#spring.cloud.discovery.enabled=false
+server.port=8567
+spring.application.name=eureka-server
+eureka.client.enabled=false

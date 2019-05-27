@@ -1,0 +1,5 @@
+server.port=8761
+ribbon.eureka.enabled=false
+zuul.routes.reservation-service.url=http://localhost:8081
+
+
