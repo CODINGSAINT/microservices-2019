@@ -2,6 +2,7 @@
 <aop-reference-model>
 <aop-project name="config-server"/>
 <aop-project name="reservation-client"/>
-<aop-project name="reservation-service"/>
 <aop-project name="eureka-server"/>
+<aop-project name="reservation-service"/>
+<aop-project name="task-service"/>
 </aop-reference-model>
