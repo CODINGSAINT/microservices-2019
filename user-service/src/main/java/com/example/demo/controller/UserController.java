@@ -4,8 +4,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,9 +22,12 @@ import com.example.demo.model.UserTask;
 import com.example.demo.repository.UserRespository;
 import com.example.demo.service.TaskService;
 
+
 @RestController
 @RequestMapping("v1")
 public class UserController {
+	 Logger logger = LoggerFactory.getLogger(UserController.class);
+	 
 	private UserRespository userRepository;
 	private RestTemplate restTemplate;
 private TaskService taskService;
@@ -36,6 +39,7 @@ private TaskService taskService;
 
 	@PostMapping("user")
 	public User user(@RequestBody User user) {
+		logger.info("New User :{}",user);
 		return userRepository.save(user);
 	}
 
@@ -46,6 +50,8 @@ private TaskService taskService;
 
 	@GetMapping("user/{id}")
 	public Optional<User> getUser(@PathVariable("id") Long id) {
+		logger.info("User id:{}",id);
+		
 		return userRepository.findById(id);
 	}
 
@@ -53,11 +59,15 @@ private TaskService taskService;
 	public ResponseEntity<?> userTasks(@PathVariable("id") Long id) {
 		Optional<User> user = getUser(id);
 		if (user.isPresent()) {
+			logger.info("User found :{}",user);
+			
 		/*	ResponseEntity<List<Task>> tasks = restTemplate.exchange("http://localhost:8083/user/" + id + "/tasks",
 					HttpMethod.GET, null, new ParameterizedTypeReference<List<Task>>() {
 					});
 					*/
 			ResponseEntity<List<Task>> tasks=taskService.userTasks(id);
+			logger.info("User tasks :{}",tasks.getBody());
+			
 			return new ResponseEntity<UserTask>(new UserTask(user.get(), tasks.getBody()), HttpStatus.OK);
 		}
 		else {

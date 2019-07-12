@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import brave.sampler.Sampler;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -26,4 +27,8 @@ public class TaskServiceApplication {
 	                .paths(PathSelectors.any())
 	                .build();
 	    }
+	 @Bean
+		public Sampler defaSampler() {
+			return Sampler.ALWAYS_SAMPLE;
+		}
 }

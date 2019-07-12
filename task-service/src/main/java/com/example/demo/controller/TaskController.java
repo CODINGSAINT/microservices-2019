@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +23,8 @@ import com.example.demo.repository.TaskRepository;
 
 @RestController
 public class TaskController {
-
+	 Logger logger = LoggerFactory.getLogger(TaskController.class);
+		
 	private TaskRepository taskRepository;
 	private CategoryRepository categoryRepository;
 
@@ -33,6 +36,7 @@ public class TaskController {
 	@PostMapping("task")
 	@Transactional
 	public ResponseEntity<Task> addTasks(@RequestBody Task task) {
+		logger.info("Task {}",task);
 		Set<Category> categories = task.getCategories();
 		Set<Category> taskCategories = new HashSet<>();
 		categories.stream().forEach(category -> {
@@ -50,6 +54,8 @@ public class TaskController {
 
 	@GetMapping("user/{id}/tasks")
 	public List<Task>userTasks(@PathVariable ("id") Long userId){
+		logger.info("Task for user id{}",userId);
+		
 		return taskRepository.findByUserId(userId);
 	}
 }
