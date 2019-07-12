@@ -4,5 +4,7 @@
 <aop-project name="reservation-client"/>
 <aop-project name="eureka-server"/>
 <aop-project name="reservation-service"/>
+<aop-project name="user-service"/>
 <aop-project name="task-service"/>
+<aop-project name="api-gateway"/>
 </aop-reference-model>

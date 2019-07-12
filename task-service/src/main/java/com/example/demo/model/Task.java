@@ -16,11 +16,15 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Data;
 
 @Entity
 @Table(name = "task")
 @Data
+
 public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,6 +41,6 @@ public class Task {
 	  @JoinTable(name = "task_catogory",
       joinColumns = { @JoinColumn(name = "task_id") },
       inverseJoinColumns = { @JoinColumn(name = "category_id") })
-	private Set<Category> categories= new HashSet<>();
+	  private Set<Category> categories= new HashSet<>();
 
 }

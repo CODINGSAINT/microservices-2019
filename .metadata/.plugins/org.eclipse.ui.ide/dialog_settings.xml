@@ -103,7 +103,7 @@
 	</list>
 	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
 		<item key="ShowStatusLine" value="true"/>
-		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/reservation-client/pom.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/reservation-service/pom.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/reservation-client/src/main/resources/bootstrap.properties&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/task-service/pom.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/eureka-server/src/main/resources/application.properties&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/task-service/src/main/resources/application.properties&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/reservation-service/pom.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/eureka-server/src/main/resources/application.properties&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/reservation-client/pom.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/config-server/src/main/resources/application.properties&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/user-service/src/main/resources/bootstrap.yml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/reservation-client/src/main/resources/bootstrap.properties&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/task-service/src/main/resources/bootstrap.properties&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/user-service/pom.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/task-service/pom.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;"/>
 		<item key="ShowDerived" value="false"/>
 		<item key="FilterByLocation" value="false"/>
 		<item key="WorkingSet" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;"/>
@@ -114,5 +114,13 @@
 			<item key="DIALOG_Y_ORIGIN" value="47"/>
 			<item key="DIALOG_FONT_NAME" value="1|Sawasdee|11.0|0|GTK|1|"/>
 		</section>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="301"/>
+		<item key="DIALOG_Y_ORIGIN" value="93"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
 	</section>
 </section>

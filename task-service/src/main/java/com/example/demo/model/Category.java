@@ -13,14 +13,20 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
-@Data
 @Entity
 @Table(
 		name = "category"
     )
 public class Category {
+	
+	public Category() {
+		
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "category_id")
@@ -34,6 +40,33 @@ public class Category {
                     CascadeType.PERSIST,
                     CascadeType.MERGE
                 },mappedBy = "categories")
-	 private Set<Task> task= new HashSet<>();
+	@JsonIgnore
+	  private Set<Task> task= new HashSet<>();
+
+	public Long getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Long categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@JsonIgnore
+	public Set<Task> getTask() {
+		return task;
+	}
+
+	public void setTask(Set<Task> task) {
+		this.task = task;
+	}
+	
 	
 }

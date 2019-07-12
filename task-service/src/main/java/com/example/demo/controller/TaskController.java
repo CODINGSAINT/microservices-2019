@@ -1,12 +1,15 @@
 package com.example.demo.controller;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.transaction.Transactional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,24 +31,25 @@ public class TaskController {
 	}
 
 	@PostMapping("task")
-
 	@Transactional
-	public ResponseEntity<?> addTasks(@RequestBody Task task) {
+	public ResponseEntity<Task> addTasks(@RequestBody Task task) {
 		Set<Category> categories = task.getCategories();
-		Set<Category> userCategories = new HashSet<>();
+		Set<Category> taskCategories = new HashSet<>();
 		categories.stream().forEach(category -> {
 			Category existingCategory = categoryRepository.findByName(category.getName());
 			if (existingCategory == null) {
 				existingCategory = categoryRepository.save(category);
-
 			}
 			existingCategory.setTask(new HashSet<>());
-			userCategories.add(existingCategory);
+			taskCategories.add(existingCategory);
 		});
-		task.setCategories(userCategories);
+		task.setCategories(taskCategories);
 		Task savedTask = taskRepository.save(task);
-		return new ResponseEntity(savedTask, HttpStatus.CREATED);
-
+		return new ResponseEntity<Task>(savedTask, HttpStatus.CREATED);
 	}
 
+	@GetMapping("user/{id}/tasks")
+	public List<Task>userTasks(@PathVariable ("id") Long userId){
+		return taskRepository.findByUserId(userId);
+	}
 }
