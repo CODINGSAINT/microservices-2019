@@ -32,7 +32,7 @@ public class Task {
 	private Long taskId;
 	private Long userId;
 	private String name;
-	private String desc;
+	private String description;
 	private Boolean isDone;
 	private Date targetDate;
 	@ManyToMany(cascade = { CascadeType.PERSIST,
